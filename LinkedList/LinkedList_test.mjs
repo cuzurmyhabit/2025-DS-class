@@ -14,3 +14,21 @@ import {LinkedList} from './LinkedList.mjs';
 
 let list = new LinkedList();    //head가 null, count가 0인 연결 리스트 생성
 list.insertAt(0, 1);    //head가 1인 연결 리스트 생성
+
+list.insertLast(77);
+list.insertLast(78);
+list.insertLast(79);
+list.insertLast(80);
+list.insertLast(81);
+list.printAll();
+
+console.log("=== deleteAt() 호출 ===");
+list.deleteAt(2);
+list.printAll();
+
+console.log("=== deleteLast() 호출 ===");
+list.deleteLast();  //list.deleteAt(3);
+list.printAll();
+
+console.log("=== getNodeAt() 호출 ===");
+console.log(list.getNodeAt(2).data); 

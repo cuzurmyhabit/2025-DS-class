@@ -25,20 +25,92 @@ class LinkedList{
         
         }
         else{
-            let currntNode = this.head;
+            let currentNode = this.head;
+
             for(let i = 0; i < index - 1; i++){
                 currentNode = currentNode.next; //currentNode를 다음 노드로 이동
             }
 
-            newNode.next = currntNode.next;
-            currntNode.next = newNode;
+            newNode.next = currentNode.next;
+            currentNode.next = newNode;
 
         }
 
-        count++;
+        this.count++;
+    }
+
+    printAll(){
+        let currentNode = this.head;
+        let text = "["
+
+        while(currentNode != null){
+            text += currentNode.data;
+
+            if(currentNode.next != null){
+                text += ", ";
+            }
+            currentNode = currentNode.next; // 루프 안으로 옮기기
+        }
+        text += "]"
+        console.log(text);
+
+    }
+
+    clear(){
+        this.head = null;
+        this.count = 0;
+    }
+
+    insertLast(data){
+        this.insertAt(this.count, data);
+
+    }
+
+    deleteAt(index){
+        if(index < 0 || index >= this.count){
+            throw new Error("index 범위를 벗어났습니다");
+        }
+
+        let currentNode = this.head;
+
+        if(index == 0){
+            let deleteNode = this.head;
+            this.head = currentNode.next;
+            this.count--;
+            return deleteNode;
+        }
+        else{
+            let prevNode = this.head;
+
+            for(let i = 0; i < index - 1; i++){
+                prevNode = prevNode.next;
+            }
+        
+            let deleteNode = prevNode.next;
+            prevNode.next = deleteNode.next;
+            this.count--;
+
+            return deleteNode;
+        }
+    }
+
+    deleteLast(){
+        return this.deleteAt(this.count - 1);
+    }
+
+    getNodeAt(index){
+        if(index < 0 || index >= this.count){
+            throw new Error("index 범위를 벗어났습니다");
+        }
+
+        let currentNode = this.head;
+
+        for(let i = 0; i < index; i++){
+            currentNode = currentNode.next;
+        }
+
+        return currentNode.data;
     }
 }
-
-
 
 export {Node, LinkedList};
