@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>올바른 괄호</title>
+</head>
+<body>
+    <script>
+        function solution(a) {
+            let stack = [];
+
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] == "(") {
+                    stack.push("(");
+                } else if (a[i] == ")") {
+                    if (stack.length == 0) {
+                        return "NO";
+                    }
+                    stack.pop();
+                }
+            }
+
+            return stack.length == 0 ? "YES" : "NO";
+        }
+
+        let a = "(()()())";
+        console.log(solution(a));
+    </script>
+</body>
+</html>
