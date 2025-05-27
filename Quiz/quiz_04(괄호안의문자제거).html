@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>괄호 안의 문자 제거</title>
+</head>
+<body>
+    <script>
+        // function solution(str) {
+        //     let answer = "";
+        //     let stack = [];
+
+        //     for (let x of str) {
+        //         if (x == "(") {
+        //             stack.push(x);
+        //         } 
+        //         else if (x == ")") {
+        //             stack.pop();
+        //         } 
+        //         else {
+        //             if (stack.length == 0) {
+        //                 answer += x;
+        //             }
+        //         }
+        //     }
+        //     return answer;
+        // }
+
+        function solution(s){
+            let answer;
+            let stack = [];
+
+            for(let x of s){
+                if(x == ")"){
+                    while(stack.pop() !== "(");
+                }
+                
+                else {
+                    stack.push(x);
+                }
+                
+            }
+
+            return answer = stack.join('');
+        }
+
+        let str = "(A(BC)D)EF(G(H)(IJ)K)LM(N)"; // 출력 결과 EFLM
+        console.log(solution(str));
+    </script>
+</body>
+</html>

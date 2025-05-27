@@ -1,0 +1,76 @@
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stack - 후위 연산식</title>
+</head>
+<body>
+    <script>
+        function solution(s){
+            // 3*(5+2)-9 => 352+*9-
+
+            let answer = 0;
+            let stack = [];
+
+            for(let x of s){
+                // if(x >= '0' && x <= '9'){
+                //     stack.push(Number(x));
+                // }
+                // else{
+                
+                //     if(x == "+"){
+                //         let a = stack.pop();
+                //         let b = stack.pop();
+                //         stack.push(b + a);
+                //     }
+                //     else if(x == "-"){
+                //         let a = stack.pop();
+                //         let b = stack.pop();
+                //         stack.push(b - a);
+                //     }
+                //     else if(x == "*"){
+                //         let a = stack.pop();
+                //         let b = stack.pop();
+                //         stack.push(b * a);
+                //     }
+                //     else if(x == "/"){
+                //         let a = stack.pop();
+                //         let b = stack.pop();
+                //         stack.push(b / a);
+                //     }
+                // }
+
+                if(!isNaN(x)){
+                    stack.push(Number(x));
+                }
+                else{
+                    let a = stack.pop();
+                    let b = stack.pop();
+
+                    if(x == "+"){
+                        stack.push(b + a);
+                    }
+                    else if(x == "-"){
+                        stack.push(b - a);
+                    }
+                    else if(x == "*"){
+                        stack.push(b * a);
+                    }
+                    else if(x == "/"){
+                        stack.push(b / a);
+                    }
+                }
+            }
+
+            //return answer = stack[0];
+            return answer = stack.pop();
+        }
+        
+        //let str = "352+*9-";          //출력값: 12
+        let str = "35-7*62/+"           //출력값: -11
+        console.log(solution(str));
+
+    </script>
+</body>
+</html>
