@@ -1,0 +1,129 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String 내장 함수</title>
+</head>
+<body>
+    <script>
+        //length: 문자열 길이를 return
+        var txt = "ABCDEFGHIJKLMNOP";
+        console.log(txt.length);
+
+        //indexOf: 특정한 문자열의 위치값을 return
+        //중복된 단어는 제일 먼저 나온 단어의 위치 반환
+        //대소문자를 구분한다
+        //없는 단어는 -1(false) 반환
+        var str = "Please locate where 'locate'";
+        console.log(str.indexOf("locate"));
+        console.log(str.indexOf("z"));
+
+        var find = "locate";
+        if(str.indexOf(find) > -1){
+            console.log(find + "문자 발견");
+        }
+        else{
+            console.log(find + "문자 미발견");
+        }
+
+        //lastIndexOf
+        //indexOf를 오른쪽부터
+        console.log(str.lastIndexOf("locate"));
+
+        // search
+        //특정한 문자열의 위치값 return
+        //하지만 얘는 왼쪽부터만 갈 수 있음.
+        console.log(str.search("locate"));
+
+        //slice(a, b): a는 시작 index, 종료 index b-1
+        var str2 = "Apple, Banana, Kiwi"
+        console.log(str2.slice(7, 13));
+        console.log(str2.slice(7));
+        console.log(str2.slice(-12, -6));
+
+        //substring(a, b): a는 시작 index, 종료 index b-1
+        console.log(str2.substring(7, 13));
+        console.log(str2.substring(str2.indexOf("Kiwi")));
+        console.log(str2.substring(7));
+        
+        //substr(a, b)  : a는 시작 index, 글자 수 b
+        console.log(str2.substr(7,6));  //몇 글자인지 알고 있을 때 유용하게 사용할 수 있다
+
+        var jumin1 = "070828";
+        console.log(jumin1.substr(0, 2));
+        console.log(jumin1.substr(2, 2));
+        console.log(jumin1.substr(4, 2));
+
+        var jumin2 = "2007-08-28"
+        var jumin2 = "07-08-28"
+
+        console.log(jumin1.substr(0,jumin2.indexOf("-")));
+        
+        //replace
+        var str01 = "Please visit here";
+        var str02 = str01.replace("here", "there");
+        console.log(str02);
+
+        var str03 = "Please visit here here here";
+        var str04 = str03.replace("here", "there");
+        console.log(str04);
+
+        //정규표현식 사용
+        var str05 = "Please visit here here here";
+        var str06 = str05.replace(/here/g, "there");    //g: global(전역)을 의미
+        console.log(str06);
+
+        var str07 = "Please visit Here HERE HeRe here";
+        var str08 = str07.replace(/here/gi, "there");    //i: ignore(무시)을 의미
+        console.log(str08);
+
+        var str09 = "Please visit here HERE Here";
+
+        //Uppercase : 대문자로 변환
+        console.log(str09.toUpperCase());
+
+        //Lowercase : 소문자로 변환
+        console.log(str09.toLowerCase());
+
+        //DB에서 john을 검색 : John, JOHN, john
+
+        //concat : 문자열 합치기
+        var txt01 = "Hello";
+        var txt02 = "World!";
+        console.log(txt01.concat(txt02));
+        console.log(txt01.concat(" ", txt02));
+
+        //trim : 공백 제거
+        var str10 = "                           Hello World                           ";
+        console.log(str10);
+        console.log(str10.trim());
+
+        //padStart
+        var str11 = "5";
+        console.log(str11.padStart(8, 0));
+
+        //특정 자릿수를 통일하기 위해서 사용 예) 날짜
+        var str12 = "3";
+        console.log(str12.padStart(2,0));
+
+        //padEnd
+        var str13 = "15";
+        console.log(str13.padStart(8,0));
+
+        //CharAt
+        var str14 = "Hello World";
+        console.log(str14.charAt(1));
+
+        //split과 join
+        var tags = "키보드,기계식,블루투스";
+        var arr1 = tags.split(",");
+        console.log(arr1);
+        console.log(arr1.join());
+
+        var birthday = "2007-08-28";
+        var arr2 = birthday.split("-");
+        console.log(arr2);
+        console.log(arr2.join("."));
+    </script>
+</body>
+</html>

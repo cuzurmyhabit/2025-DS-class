@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 내장함수</title>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <script>
+        // //toString()
+        // var fruits1 = ["Banana", "Orange", "Apple"];
+        // console.log(fruits1.toString());
+
+        // //join()
+        // console.log(fruits1.join(" | "));   //아무것도 없으면 쉼표가 기본값으로
+
+        // var txt1 = "Banana <br> ";
+        // txt1 += "Orange <br> ";
+        // txt1 += "Apple <br> ";
+        // console.log(txt1);
+        
+        // document.getElementById("div1").innerHTML = txt1;
+
+        // var arr1 = []
+        // arr1.push("Banana");
+        // arr1.push("Orange");
+        // arr1.push("Apple");
+
+        // console.log(arr1);
+
+        // document.getElementById("div1").innerHTML = arr1.join("<br>")
+
+        // //pop() 
+        // //배열의 가장 마지막 항목을 제거하여 리턴 -> stack 구현
+        // var fruits2 = ["Banana", "Orange", "Apple"];
+        // var arr2 = fruits2.pop();
+        // console.log(arr2);
+        // console.log(fruit2);
+
+        // //push()
+        // //배열의 가장 마지막 항목에 추가
+        // fruits2.push("Kiwi");
+        // console.log(fruits2);
+
+        // //stack 구현: push, pop 이용
+
+        //shift()
+        //배열의 첫 번째 항목을 제거하여 리턴함
+        var fruits3 = ["Banana", "Orange", "Apple"];
+        var str = fruits3.shift();
+        console.log(str);
+        console.log(fruits3);
+
+        //queue 구현: shift, push 이용
+
+
+        //unshift()
+        //배열의 첫 번째 항목에 추가
+        var fruit4 =  ["Banana", "Orange", "Apple"];
+        fruit4.unshift("Lemon");
+        console.log(fruit4);
+
+        fruit4[0] = "Grape";
+        console.log(fruit4);
+        fruit4[fruit4.length-1] = "Peach";
+        console.log(fruit4);
+
+        //중요!
+        //stack구현: push, pop
+        //queue구현: shift, push
+        //dequeue구현: push, pop, shift, unshift
+
+        //splice(a,b,c) 별 다섯 개 !!!!!
+        // a = 시작 위치
+        // b = 삭제할 항목 수
+        // c = 추가할 항목
+
+        var fruit5 =  ["Banana", "Orange", "Apple"];
+        //fruit5.splice(1, 2 );
+        //fruit5.splice(1,0,"Lemon","Kiwi");
+        fruit5.splice(1,1,"Lemon","Kiwi");
+
+        console.log(fruit5);
+    </script>
+</body>
+</html>
