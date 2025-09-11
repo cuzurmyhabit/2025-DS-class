@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function solution(need, plan){
+            let queue = need.split('');
+
+            for(let x of plan){
+                if(x == queue[0]){
+                    queue.shift();
+                }
+            }
+            return queue.length == 0 ? "YES" : "NO";
+        }
+
+        let a = "CBA";
+        let b = "CBDAGE";
+        console.log(solution(a, b)); // YES
+        console.log(solution(a, "CADBGE")); // NO
+        console.log(solution(a, "CDBGE")); // NO
+
+        function solutionT(need, plan){
+            let answer = "YES";
+            let queue = need.split('');
+
+            for(let x of plan){
+                if(queue.includes(x)){
+                    if(x!== queue.shift()) return answer = "NO";
+                }
+            }
+
+            if( queue.length > 0 ) return answer = "NO";
+
+            return answer;
+        }
+
+        let c = "CBA";
+        let d = "CBDAGE";
+        console.log(solutionT(c, d)); // YES
+        console.log(solutionT(c, "CADBGE")); // NO
+        console.log(solutionT(c, "CDBGE")); // NO
+
+    </script>
+</body>
+</html> 
