@@ -1,0 +1,65 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이진트리 구현</title>
+</head>
+<body>
+    <script>
+
+        console.log("=========preOrder===========");
+        function preOrder(v){
+
+            let answer = v;
+            
+            if(v > 7) return;
+            
+            else{
+                console.log(v);
+                preOrder(v * 2);
+                preOrder(v * 2 + 1);
+            }
+            return answer;
+        }
+
+        preOrder(1);
+
+        console.log("=========inOrder===========");
+
+        function inOrder(v){
+
+            let answer = v;
+            
+            if(v > 7) return;
+            
+            else{
+                inOrder(v * 2);
+                console.log(v);
+                inOrder(v * 2 + 1);
+            }
+            return answer;
+        }
+
+        inOrder(1);
+
+        console.log("=========postOrder===========");
+
+        function postOrder(v){
+
+            let answer = v;
+            
+            if(v > 7) return;
+            
+            else{
+                postOrder(v * 2);
+                postOrder(v * 2 + 1);
+                console.log(v);
+            }
+            return answer;
+        }
+
+        postOrder(1);
+
+    </script>
+</body>
+</html>
